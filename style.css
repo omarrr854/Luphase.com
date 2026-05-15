@@ -1,0 +1,160 @@
+body {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e0e;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px 15px 10px 15px;
+  background: #111;
+  color: white;
+}
+
+/* Imagen debajo del título */
+.hero-image {
+  display: block;
+  margin: 12px auto 0 auto;
+  max-width: 899px; 
+  width: 99%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+nav {
+  text-align: center;
+  padding: 10px;
+  background: transparent;
+}
+nav a {
+  color: #ddd;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.productos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+/* Tarjetas de productos estilo imagen */
+.producto {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  width: 100%;
+  display: block;
+}
+
+.info {
+  padding: 14px 18px 22px 18px;
+  text-align: left;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  margin: 0 0 6px 0;
+  color: #f5f5f5;
+}
+
+.producto p {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+}
+
+.producto button {
+  background-color: #2b2b2b;
+  border: none;
+  color: white;
+  padding: 10px 160px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.producto .actions {
+  padding: 0 18px 18px 18px;
+  display:flex;
+  justify-content:flex-start;
+  gap:10px;
+}
+
+.producto button:hover {
+  background-color: #444;
+}
+
+footer {
+  text-align: center;
+  padding: 18px;
+  background: #0b0b0b;
+  color: #9b9b9b;
+  margin-top: 20px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  color: #000;
+}
+.modal-content img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+select {
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .productos { padding: 20px; gap: 15px; }
+  .producto { width: calc(100% - 40px); max-width: 420px; }
+  .hero-image { width: 96%; }
+}
