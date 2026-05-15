@@ -16,12 +16,12 @@ header {
 /* Imagen debajo del título */
 .hero-image {
   display: block;
-  margin: 12px auto 0 auto;
-  max-width: 899px; 
+  margin: 11px auto 0 auto;
+  max-width: 500px; 
   width: 99%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 100px rgba(0,0,0,0.6);
 }
 
 nav {
