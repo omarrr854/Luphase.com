@@ -13,7 +13,7 @@ header {
   color: white;
 }
 
-/* Imagen debajo del título */
+/* Imagen título */
 .hero-image {
   display: block;
   margin: 11px auto 0 auto;
@@ -43,7 +43,7 @@ nav a {
   padding: 30px;
 }
 
-/* Tarjetas de productos estilo imagen */
+/* Tarjetas de productos */
 .producto {
   background-color: #1a1a1a;
   border-radius: 12px;
@@ -74,7 +74,7 @@ nav a {
 .producto h3 {
   font-size: 1.2rem;
   margin: 0 0 6px 0;
-  color: #f5f5f5;
+  color: #f9f9f9;
 }
 
 .producto p {
@@ -86,8 +86,9 @@ nav a {
 .producto button {
   background-color: #2b2b2b;
   border: none;
-  color: white;
-  padding: 10px 160px;
+  color: rgb(230, 227, 227);
+  padding: 10px 0;     
+  width: 100%;          
   font-size: 1rem;
   cursor: pointer;
   display: inline-block;
@@ -128,7 +129,7 @@ footer {
   align-items: center;
 }
 .modal-content {
-  background: #fff;
+  background: #fffdfd95;
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
@@ -142,9 +143,9 @@ footer {
 }
 .close {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 25px;
+  top: 1px;
+  right: 10px;
+  font-size: 70px;
   cursor: pointer;
 }
 select {
