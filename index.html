@@ -16,67 +16,70 @@
   </header>
 
   <nav>
-    
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <section class="productos" id="productos">
-    <!-- Producto 1 -->
-    <div class="producto" onclick="abrirModal('OneMoreRepIa.png','Playera negra','$210 MXN','Playera negra de algodón, diseño estampado (One more rep) cómoda para el gimnasio o cualquieer ocasión.')">
-      <img src="OneMoreRepIa.png" alt="Playera negra">
-      <div class="info">
-        <h3>Playera "One More Rep" Negra</h3> 
-        <p> $210 MXN</p>
-      </div>
-      <div class="actions">
-        <button>Comprar</button>
-      </div>
+  <!-- (Sección productos) -->
+<section class="productos" id="productos">
+  <!-- Producto 1 -->
+  <div class="producto" onclick="abrirModal(1)">
+    <img src="OneMoreRepIa.png" alt="Playera negra">
+    <div class="info">
+      <h3>Playera Negra "One More Rep"</h3> 
+      <p> $210 MXN</p>
     </div>
+    <div class="actions">
+      <button>Comprar</button>
+    </div>
+  </div>
 
-    <!-- Producto 2 -->
-    <div class="producto" onclick="abrirModal('TWormhole.png','Playera negra','$249MXN','Playera negra de algodón de buena calidad, diseño estampado (Wormhole), fresca y cómoda para cualquier ocasión.')">
-      <img src="TWormhole.png" alt="Playera negra">
-      <div class="info">
-        <h3>Playera "Wormhole" Negra</h3>
-        <p>$249 MXN</p>
-        <p>Apartado: "Teorico"</p>
-      </div>
-      <div class="actions">
-        <button>Comprar</button>
-      </div>
+  <!-- Producto 2 -->
+  
+  <div class="producto" onclick="abrirModal(2)">
+    <img src="TWormhole.png" alt="Playera negra">
+    <div class="info">
+      <h3>Playera Negra "Wormhole"</h3>
+      <p>$249 MXN</p>
+      <p>Apartado: "Teorico"</p>
     </div>
+    <div class="actions">
+      <button>Comprar</button>
+    </div>
+  </div>
 
-    <!-- Producto 3 -->
-    <div class="producto" onclick="abrirModal('WhiteHole.png','Playera beige','$249 MXN','Playera beige de algodón de alta calidad, diseño exclusivo (White Hole), ideal para un estilo limpio y moderno.')">
-      <img src="WhiteHole.png" alt="Playera beige">
-      <div class="info">
-        <h3>Playera "White Hole" Beige</h3>
-        <p>$249 MXN</p> 
-        <p>Apartado: "Teorico"</p>
-      </div>
-      <div class="actions">
-        <button>Comprar</button>
-      </div>
+  <!-- Producto 3 -->
+  
+  <div class="producto" onclick="abrirModal(3)">
+    <img src="WhiteHole.png" alt="Playera beige">
+    <div class="info">
+      <h3>Playera Beige "White Hole"</h3>
+      <p>$249 MXN</p> 
+      <p>Apartado: "Teorico"</p>
     </div>
-   
-    <!-- Producto 4 -->
-    <div class="producto" onclick="abrirModal('PlayeraSinMangas.png','Playera Sin Mangas Negra ','$199 MXN','Playera negra sin mangas tipo oversizede algodón suave y acabado desgastado, exelente para este verano.')">
-      <img src="PlayeraSinMangas.png" alt="PlayeraSinMangas">
-      <div class="info">
-        <h3>Playera Sin Mangas Negra</h3>
-        <p>$199 MXN</p> 
-      </div>
-      <div class="actions">
-        <button>Comprar</button>
-      </div>
+    <div class="actions">
+      <button>Comprar</button>
     </div>
-  </section>
+  </div>
+  
+  <!-- Producto 4 -->
+  <div class="producto" onclick="abrirModal(4)">
+    <img src="PlayeraSinMangas.png" alt="PlayeraSinMangas">
+    <div class="info">
+      <h3>Playera Negra sin mangas</h3>
+      <p>$199 MXN</p> 
+    </div>
+    <div class="actions">
+      <button>Comprar</button>
+    </div>
+  </div>
+</section>
 
   <footer id="contacto">
     <p> 2026 LUPHASE. Todos los derechos reservados.</p>
     <p>Email: luphase13@gmail.com </p>
-      <p>Siguenos en nuestras redes sociales: TikTok: @luphase | Instagram:@luphase</p>
+      <p>Siguenos en nuestras redes sociales: </p>
+      <p> TikTok: @luphase | Instagram: @luphase</p>
   </footer>
 
   <!-- Modal -->
@@ -87,10 +90,10 @@
       <h2 id="modal-nombre"></h2>
       <h3 id="modal-precio"></h3>
       <p id="modal-descripcion"></p>
-
       <label for="color">Color:</label>
-      <select id="color">
+      <select id="Color">
         <option value="negro">Negro</option>
+        <option value="beige">Beige</option>
       </select>
 
       <label for="tamaño">Tamaño:</label>
