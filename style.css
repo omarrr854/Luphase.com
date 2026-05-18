@@ -115,7 +115,7 @@ footer {
   margin-top: 20px;
 }
 
-/* Modal */
+/* Estilos de Ventanas Modales */
 .modal {
   display: none;
   position: fixed;
@@ -152,6 +152,138 @@ select {
   padding: 10px;
   margin-top: 5px;
   width: 100%;
+}
+
+/* Contenedor interno del modal del carrito */
+.carrito-modal-content {
+  background: #fffdfd95;
+  color: #000;
+  max-width: 500px;
+  width: 90%;
+  padding: 25px;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.carrito-titulo {
+  margin-top: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+#lista-carrito {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  max-height: 240px; 
+  overflow-y: auto;
+}
+
+/* Filas de productos dentro del carrito */
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.item-carrito strong {
+  font-size: 1.05rem;
+}
+
+.item-carrito small {
+  color: #444;
+}
+
+/* Botones de acción (+ , - , X) */
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.item-actions button {
+  background: #000;
+  border: none;
+  color: #fff;
+  padding: 3px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.item-actions button:hover {
+  background: #333;
+}
+
+/* Botón de eliminar (X) */
+.item-actions button.eliminar {
+  background: transparent;
+  color: #cc0000;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.item-actions button.eliminar:hover {
+  color: #ff0000;
+  background: transparent;
+}
+
+/* Footer del carrito */
+.carrito-footer {
+  border-top: 2px solid #000;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.carrito-footer h3 {
+  margin: 0 0 15px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+#vaciar-carrito {
+  background-color: transparent;
+  border: 1px solid #cc0000;
+  color: #cc0000;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#vaciar-carrito:hover {
+  background-color: #cc0000;
+  color: #fff;
+}
+
+/* Botón para añadir desde el modal */
+#btn-add-cart {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#btn-add-cart:hover {
+  background-color: #333;
 }
 
 /* Responsive */
