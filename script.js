@@ -1,13 +1,12 @@
 // ==========================================
 // 1. BASE DE DATOS DE PRODUCTOS (INVENTARIO)
 // ==========================================
-// Se define cada producto con sus imágenes correspondientes para cada color.
 const productos = [
   {
     id: 1,
-    nombre: 'Playera Negra <<One More Rep>>',
-    precio: '$210 MXN',
-    descripcion: 'Playera negra de algodón, diseño estampado (One more rep) cómoda para el gimnasio o cualquier ocasión.',
+    nombre: 'Playera <<One More Rep>>',
+    precio: 210, 
+    descripcion: 'Playera de algodón, diseño estampado (One more rep) cómoda para el gimnasio o cualquier ocasión.',
     variantes: [
       { color: 'Negro', imagen: 'OneMoreRepIa.png' },
       { color: 'Beige', imagen: 'OneMoreRepBeige.png' } 
@@ -15,9 +14,9 @@ const productos = [
   },
   {
     id: 2,
-    nombre: 'Playera Negra <<Wormhole>>',
-    precio: '$249 MXN',
-    descripcion: 'Playera negra de algodón de buena calidad, diseño estampado (Wormhole), fresca y cómoda para cualquier ocasión.',
+    nombre: 'Playera <<Wormhole>>',
+    precio: 249,
+    descripcion: 'Playera de algodón de buena calidad, diseño estampado (Wormhole), fresca y cómoda para cualquier ocasión.-----------------> En el estampado dice: "Los puentes de Einstein-Rosen, son soluciones teóricas de las ecuaciones de la relatividad general. Funcionan como un atajo o "túnel" que conecta dos puntos distantes del espacio-tiempo." ',
     variantes: [
       { color: 'Negro', imagen: 'TWormhole.png' },
       { color: 'Beige', imagen: 'TWormholeBeige.png' } 
@@ -25,9 +24,9 @@ const productos = [
   },
   {
     id: 3,
-    nombre: 'Playera Beige <<White Hole>>',
-    precio: '$249 MXN',
-    descripcion: 'Playera beige de algodón de alta calidad, diseño exclusivo (White Hole), ideal para un estilo limpio y moderno.',
+    nombre: 'Playera <<White Hole>>',
+    precio: 249,
+    descripcion: 'Playera de algodón de alta calidad, diseño exclusivo (White Hole), ideal para un estilo limpio y moderno. ----------------->Las letras del diseño dicen: "Los agujeros blancos son soluciones teóricas de la relatividad general que funcionan como el reverso del tiempo de un agujero negro. Son objetos hipotéticos que expulsan materia y luz violentamente, pero nada puede entrar en ellos.  "',
     variantes: [
       { color: 'Beige', imagen: 'WhiteHole.png' },
       { color: 'Negro', imagen: 'WhiteHoleNegro.png' } 
@@ -35,54 +34,40 @@ const productos = [
   },
   {
     id: 4,
-    nombre: 'Playera Negra sin mangas',
-    precio: '$199 MXN',
-    descripcion: 'Playera negra sin mangas tipo oversized de algodón suave y acabado desgastado, excelente para este verano.',
+    nombre: 'Playera sin mangas',
+    precio: 199,
+    descripcion: 'Playera sin mangas tipo oversized de algodón suave y acabado desgastado, excelente para este verano.',
     variantes: [
       { color: 'Negro', imagen: 'PlayeraSinMangas.png' }
     ]
   }
 ];
 
-// Variable global para rastrear qué producto tiene abierto el usuario en el modal
 let productoActual = null;
-
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 // ==========================================
-// 2. LÓGICA DEL MODAL (FUNCIONES)
+// 2. LÓGICA DEL MODAL DE PRODUCTOS
 // ==========================================
-
-// Función que se ejecuta al hacer clic en una tarjeta de producto del HTML
 function abrirModal(idProducto) {
-  // Busca el producto específico por su ID
   productoActual = productos.find(p => p.id === idProducto);
+  if (!productoActual) return;
 
-  if (!productoActual) {
-    console.error("Producto no encontrado en la base de datos de JS.");
-    return;
-  }
-
-  // Capturamos los elementos del DOM (HTML)
   const modalImg = document.getElementById('modal-img');
   const modalNombre = document.getElementById('modal-nombre');
   const modalPrecio = document.getElementById('modal-precio');
   const modalDescripcion = document.getElementById('modal-descripcion');
   const selectColor = document.getElementById('Color');
 
-  // Se muestra la información del producto seleccionado en el modal
   modalNombre.innerText = productoActual.nombre;
-  modalPrecio.innerText = productoActual.precio;
+  modalPrecio.innerText = `$${productoActual.precio} MXN`;
   modalDescripcion.innerText = productoActual.descripcion;
 
-  // Ponemos la imagen de la primera variante por defecto al abrir
   if (productoActual.variantes.length > 0) {
     modalImg.src = productoActual.variantes[0].imagen;
   }
 
-  // Se limpian opciones antiguas
   selectColor.innerHTML = "";
-
-  // Llenamos el menú desplegable con los colores de CADA producto
   productoActual.variantes.forEach(function(variante) {
     let opcion = document.createElement('option');
     opcion.value = variante.color;   
@@ -90,41 +75,143 @@ function abrirModal(idProducto) {
     selectColor.appendChild(opcion);
   });
 
-
   document.getElementById('modal').style.display = 'flex';
 }
 
-// Cerrar el modal
 function cerrarModal() {
   document.getElementById('modal').style.display = 'none';
-  productoActual = null; // Reseteamos el producto actual por seguridad
+  productoActual = null;
 }
 
-
-// ==========================================
-// 3. ESCUCHADORES DE EVENTOS (LISTENERS)
-// ==========================================
-
-// Detecta cuándo el usuario cambia la opción del color
+// Escuchador para detectar el cambio de color y actualizar la imagen del modal
 document.getElementById('Color').addEventListener('change', function() {
   const colorSeleccionado = this.value; 
   const modalImg = document.getElementById('modal-img');
 
   if (productoActual) {
-    // Busca la variante que coincida con el color que el usuario acaba de elegir
     const varianteSeleccionada = productoActual.variantes.find(v => v.color === colorSeleccionado);
-
-    // Si existe esa variante, se cambia la imagen del modal
     if (varianteSeleccionada) {
       modalImg.src = varianteSeleccionada.imagen;
     }
   }
 });
 
-// Cierra el modal (si el usuario hace clic afuera del recuadro)
+
+// ==========================================
+// 3. LÓGICA DEL MODAL DEL CARRITO
+// ==========================================
+function toggleCarrito(e) {
+  if(e) e.preventDefault();
+  document.getElementById('carrito-modal').style.display = 'flex';
+}
+
+function cerrarCarrito() {
+  document.getElementById('carrito-modal').style.display = 'none';
+}
+
+function agregarAlCarrito() {
+  if (!productoActual) return;
+
+  const colorElegido = document.getElementById('Color').value;
+  const tallaElegida = document.getElementById('tamaño').value;
+  const codigoUnico = `${productoActual.id}-${colorElegido}-${tallaElegida}`;
+
+  const existe = carrito.some(item => item.codigo === codigoUnico);
+
+  if (existe) {
+    carrito = carrito.map(item => {
+      if (item.codigo === codigoUnico) item.cantidad++;
+      return item;
+    });
+  } else {
+    const nuevoItem = {
+      codigo: codigoUnico,
+      id: productoActual.id,
+      nombre: productoActual.nombre,
+      precio: productoActual.precio,
+      color: colorElegido,
+      talla: tallaElegida,
+      cantidad: 1
+    };
+    carrito.push(nuevoItem);
+  }
+
+  actualizarCarritoHTML();
+  cerrarModal();
+  document.getElementById('carrito-modal').style.display = 'flex';
+}
+
+function actualizarCarritoHTML() {
+  const lista = document.getElementById('lista-carrito');
+  const totalContenedor = document.getElementById('total-carrito');
+  const contador = document.getElementById('contador-cart');
+  
+  lista.innerHTML = '';
+  let total = 0;
+  let totalArticulos = 0;
+
+  carrito.forEach(item => {
+    total += item.precio * item.cantidad;
+    totalArticulos += item.cantidad;
+
+    const li = document.createElement('li');
+    li.className = 'item-carrito';
+    li.innerHTML = `
+      <div>
+        <strong>${item.nombre}</strong><br>
+        <small>Talla: ${item.talla} | Color: ${item.color}</small><br>
+        <span>$${item.precio} x ${item.cantidad}</span>
+      </div>
+      <div class="item-actions">
+        <button onclick="cambiarCantidad('${item.codigo}', -1)">-</button>
+        <button onclick="cambiarCantidad('${item.codigo}', 1)">+</button>
+        <button class="eliminar" onclick="eliminarDelCarrito('${item.codigo}')">&times;</button>
+      </div>
+    `;
+    lista.appendChild(li);
+  });
+
+  totalContenedor.innerText = `$${total} MXN`;
+  contador.innerText = totalArticulos;
+
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function cambiarCantidad(codigo, cambio) {
+  carrito = carrito.map(item => {
+    if (item.codigo === codigo) {
+      item.amount = item.cantidad += cambio;
+    }
+    return item;
+  }).filter(item => item.amount = item.cantidad > 0);
+
+  actualizarCarritoHTML();
+}
+
+function eliminarDelCarrito(codigo) {
+  carrito = Pattern = carrito.filter(item => item.codigo !== codigo);
+  actualizarCarritoHTML();
+}
+
+function vaciarCarrito() {
+  carrito = [];
+  actualizarCarritoHTML();
+}
+
+// Cargar almacenamiento local al iniciar
+document.addEventListener('DOMContentLoaded', () => {
+  actualizarCarritoHTML();
+});
+
+// Evento global para clics fuera de las ventanas
 window.onclick = function(event) {
-  const modal = document.getElementById('modal');
-  if (event.target == modal) {
+  const modalProducto = document.getElementById('modal');
+  const modalCarrito = document.getElementById('carrito-modal');
+  
+  if (event.target == modalProducto) {
     cerrarModal();
+  }
+  if (event.target == modalCarrito) {
+    cerrarCarrito();
   }
 }
