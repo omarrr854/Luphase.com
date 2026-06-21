@@ -4,7 +4,7 @@
 const productos = [
   {
     id: 1,
-     nombre: 'Playera <<One More Rep>>',
+     nombre: 'Playera "One More Rep"',
     precio: 210, 
      descripcion: 'Playera de algodón, diseño estampado (One more rep) cómoda para el gimnasio o cualquier ocasión.',
     variantes: [
@@ -15,7 +15,7 @@ const productos = [
   },
   {
     id: 2,
-     nombre: 'Playera <<Wormhole>>',
+     nombre: 'Playera "Wormhole"',
     precio: 249,
      descripcion: 'Playera de algodón de buena calidad, diseño estampado (Wormhole), fresca y cómoda para cualquier ocasión.-----------------> En el estampado dice: "Los puentes de Einstein-Rosen, son soluciones teóricas de las ecuaciones de la relatividad general. Funcionan como un atajo o "túnel" que conecta dos puntos distantes del espacio-tiempo." ',
     variantes: [
@@ -26,7 +26,7 @@ const productos = [
   },
   {
     id: 3,
-     nombre: 'Playera <<White Hole>>',
+     nombre: 'Playera "White Hole"',
     precio: 249,
      descripcion: 'Playera de algodón de alta calidad, diseño exclusivo (White Hole), ideal para un estilo limpio y moderno. ----------------->Las letras del diseño dicen: "Los agujeros blancos son soluciones teóricas de la relatividad general que funcionan como el reverso del tiempo de un agujero negro. Son objetos hipotéticos que expulsan materia y luz violentamente, pero nada puede entrar en ellos.  "',
     variantes: [
@@ -37,11 +37,20 @@ const productos = [
   },
   {
     id: 4,
-     nombre: 'Playera sin mangas',
+     nombre: 'Playera sin mangas LUPHASE',
     precio: 199,
      descripcion: 'Playera sin mangas tipo oversized de algodón suave y acabado desgastado, excelente para este verano.',
     variantes: [
       { color: 'Negro', imagen: 'PlayeraSinMangas.png' }
+    ]
+  },
+  {
+    id: 5,
+     nombre: 'Playera estampada "Quantum entanglement"',
+    precio: 216,
+     descripcion: 'Playera color negra de algodón suave, con un diseño especial (Quantum entanglement), exelente para los amantes de la cuántica. --------------------> El diseño dice: <<Einstein lo llamó "acción fantasmal a distancia". Dos partículas quedan conectadas de tal manera que lo que le pasa a una afecta instantáneamente a la otra, sin importar si están a centímetros o a años luz de distancia.>>',
+    variantes: [
+      { color: 'Negro', imagen: 'QuantumEntanglement.png' }
     ]
   }
 ];
