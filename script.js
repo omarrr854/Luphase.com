@@ -52,6 +52,15 @@ const productos = [
     variantes: [
       { color: 'Negro', imagen: 'QuantumEntanglement.png' }
     ]
+  },
+  {
+  id: 6,
+     nombre: 'Playera estampada "Endless summer"',
+    precio: 199,
+     descripcion: 'Playera color rojo con un diseño en la parte trasera tipo playa, un gran diseño para el verano o para lucir por la calle un dia casual. En la parte de enfrente debajo del cuello la frase "Endless summer" que significa: "Un verano sin fin".',
+    variantes: [
+      { color: 'Rojo', imagen: 'EndlessSummer.png' }
+    ]
   }
 ];
 
