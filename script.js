@@ -61,7 +61,8 @@ const productos = [
     variantes: [
       { color: 'Rojo', imagen: 'EndlessSummer.png' },
       { color: 'Verde Oscuro', imagen: 'EndlessSummerVerde.png' },
-      { color: 'Negro', imagen: 'EndlessSummerNegro.png' }
+      { color: 'Negro', imagen: 'EndlessSummerNegro.png' },
+      { color: 'Azul Fuerte', imagen: 'EndlessSummerAzul.png' }
     ]
   }
 ];
