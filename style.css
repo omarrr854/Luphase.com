@@ -259,7 +259,6 @@ select {
   background: transparent;
 }
 
-
 .carrito-footer {
   border-top: 2px solid #000;
    padding-top: 10px;
@@ -272,6 +271,11 @@ select {
   justify-content: space-between;
    font-size: 1.4rem;
 }
+ /* ocultar checkbox*/
+   input {
+    display: none;
+   }
+
 
 #vaciar-carrito {
   background-color: transparent;
@@ -284,6 +288,22 @@ select {
    font-family: 'Oswald', sans-serif;
   font-size: 1rem;
    transition: all 0.3s ease;
+}
+#Elegir {
+  background-color: transparent;
+   border: 1px solid #3b3333;
+  color: #000000;
+   width: 100%;
+  padding: 10px;
+   cursor: pointer;
+  border-radius: 4px;
+   font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+   transition: all 0.3s ease;
+}
+#Elegir:hover {
+  background-color: #000000;
+  color:#ffffff
 }
 
 #vaciar-carrito:hover {

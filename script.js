@@ -1,4 +1,3 @@
-
 // 1. INVENTARIO
 
 const productos = [
@@ -212,6 +211,10 @@ function actualizarCarritoHTML() {
           <span>$${item.precio} x ${item.cantidad}</span>
       </div>
       <div class="item-actions">
+      <label>
+        <input type= "checkbox"/>
+      </label>
+         <span></span>
         <button onclick="cambiarCantidad('${item.codigo}', -1)">-</button>
           <button onclick="cambiarCantidad('${item.codigo}', 1)">+</button>
            <button class="eliminar" onclick="eliminarDelCarrito('${item.codigo}')">&times;</button>
@@ -222,6 +225,10 @@ function actualizarCarritoHTML() {
 
   totalContenedor.innerText = `$${total} MXN`;
   contador.innerText = totalArticulos;
+
+  if (eligiendoProductos) {
+    mostrarCheckboxesCarrito();
+  }
 
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
@@ -247,10 +254,34 @@ function vaciarCarrito() {
                     actualizarCarritoHTML();
 }
 
+let eligiendoProductos = false; //"Elegir"
+
+const button = document.getElementById('Elegir');
+button.addEventListener("click", doSomething);
+
+function doSomething() {
+  if (eligiendoProductos) {
+    // Segundo click: Shopify
+    return;
+  }
+
+  // Primer click
+  eligiendoProductos = true;
+  mostrarCheckboxesCarrito();
+  button.innerText = "Comprar lo elegido";
+}
+
+function mostrarCheckboxesCarrito() {
+  const checkboxes = document.querySelectorAll('#lista-carrito input[type="checkbox"]');
+  checkboxes.forEach(input => {
+    input.style.display = 'inline-block';
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
                      actualizarCarritoHTML();
 });
+
 
 
 window.onclick = function(event) {
