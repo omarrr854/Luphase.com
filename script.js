@@ -140,7 +140,19 @@ function toggleCarrito(e) {
 }
 
 function cerrarCarrito() {
-       document.getElementById('carrito-modal').style.display = 'none';
+  document.getElementById('carrito-modal').style.display = 'none';
+  reiniciarEleccion();
+}
+
+function reiniciarEleccion() {
+  eligiendoProductos = false;
+  button.innerText = "Elegir que comprar";
+
+  const checkboxes = document.querySelectorAll('#lista-carrito input[type="checkbox"]');
+  checkboxes.forEach(input => {
+    input.style.display = 'none';
+    input.checked = false; 
+  });
 }
 
 function agregarAlCarrito() {
