@@ -324,6 +324,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+function Enviar_Al_Correo() {
+ const correoUsuario = document.getElementById('correoCampo').value;
+ const comentario = document.getElementById('Comentarios').value;
+
+const CorreoMarca = "luphase13@gmail.com";
+
+const cuerpoMensaje = `De: ${correoUsuario}\n\nComentario:\n${comentario}`;
+
+const mailtoLink = `mailto:${CorreoMarca}?body=${encodeURIComponent(cuerpoMensaje)}`;
+
+window.location.href = mailtoLink;
+}
+
 window.onclick = function(event) {
   const modalProducto = document.getElementById('modal');
   const modalCarrito = document.getElementById('carrito-modal');
